@@ -119,13 +119,19 @@ and [Original Documentation](http://flask.pocoo.org/docs/1.0/quickstart/#static-
 
 Here we will be using the `fetch` web API to make HTTP requests!
 
-`fetch` is robust web API that lets you make asynchronous (HTTP) requests like `get` and `post`. It returns a “Promise” which is one of the great features of ES6. Promises allow us to handle asynchronous requests in an intuitive manner. All this means is that if you want some data from somewhere, it may take a while for it to process... and you don't know for sure how long this takes. Using promises allows your code to wait for this data to be processed 
+`fetch` is robust web API that lets you make asynchronous (HTTP) requests like `get` and `post`. It returns a “Promise” which is one of the great features of ES6. Promises allow us to handle asynchronous requests in an intuitive manner. All this means is that if you want some data from somewhere, it may take a while for it to process... and you don't know for sure how long this takes. Using promises allows your code to wait for this data to be processed. 
 
 `logic.js`
 ~~~js
-// Get some kind of data you want
+/* 
+   Let's say we have some number (10000) from a dropdown menu, or a user input,
+   and we want to do something with it. In this example we will send it back to our
+   Flask app, perform some math on it, then recieve it back. In order to do this, we 
+   can store it in an object, perhaps sending more than just a number!
+*/
 let data = {
-  'number': 10000
+  'number': 10000,
+  'otherData': 'A cookie 🍪'
 }
 
 // Create url (this matches the url string in Flask app routes like: @app.route('/api/data'))
@@ -136,7 +142,7 @@ let options = {
   method: "POST", // *GET, POST, PUT, DELETE, etc.
   // mode: "no-cors", // no-cors, cors, *same-origin
   headers: {
-    'content-type': 'text/plain; charset=UTF-8'
+    'Content-Type': 'application/json; charset=UTF-8'
   },
   body: JSON.stringify(data) // body data type must match "Content-Type" header
 }
@@ -149,11 +155,52 @@ fetch(url, options) // pass the url and options object to the fetch() function
     console.log(`This is data: `, data);
     // Do something with the response data here!
   });
-
-
 ~~~
 
-fetch is a new powerful web API that lets you make asynchronous requests. In fact, fetch is one of the best and my favorite way to make an HTTP request. It returns a “Promise” which is one of the great features of ES6. If you are not familiar with ES6, you can read about it in this article. Promises allow us to handle the asynchronous request in a smarter way. Let’s take a look at how fetch technically works.
+With this JavaScript file, we are sending a `POST` request to our Flask server.
+We are also sending a little bit of information along with it
+in the form of: 
+~~~js
+let data = {
+  'number': 10000,
+  'otherData': 'A cookie 🍪'
+}
+~~~
+
+This data will enter the following route in our Flask App (`app.py`):
+
+~~~Python
+@app.route('/api/data', methods=["GET","POST"])
+def number_data():
+  # Get the data from the "GET" or "POST" request from the front-end
+  requestData = request.get_data()
+  data = json.loads(requestData)
+  print('This is data: ')
+  print(data)
+
+  # Do something with the data
+  result = data['number'] * 2
+
+  # The return value must be a: string, tuple, Response instance, or WSGI callable. 
+  # JSON data IS a string. So let's use Flask's jsonify function:
+  return jsonify(result)
+~~~
+
+The `number_data()` function will run, perform some calculations, and return some JSON data.
+
+*IMPORTANT*: This data will be sent back to our `JavaScript` file where we made the request!
+
+`logic.js`
+~~~js
+fetch(url, options)
+  .then(response => { // This is where we get back a response from the HTTP request!
+    return response.json() // Parse the JSON data from our Flask app!
+  })
+  .then(data => {
+    console.log(`This is data: `, data);
+    // Do something with the data here!
+  });
+~~~
 
 ## Database (coming soon)
 ## Buildling HTML pages (coming soon)
