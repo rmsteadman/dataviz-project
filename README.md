@@ -49,27 +49,29 @@ A Demo Application featuring HTTP requests from the client to server (files incl
 `app.py`
 ~~~python
 # Import/load necessary files, resources, and dependencies
-from flask import Flask, render_template, jsonify
-  # render_template() -> a function that allows us to "serve" up a whole HTML file (or page) instead of just raw data
-  # jsonify() -> a function that will convert data to the JSON data format
+from flask import Flask, render_template, json, jsonify, request
 app = Flask(__name__)
 
 # Create routes (or endpoints) for your application
 @app.route('/')
 def home():
-  return render_template('index.html') 
-    # When a user goes to the link "SOME_IP_ADDRESS:SOME_PORT/" (example: localhost:5000/), 
-    # he/she will see the `index.html` page
+  return render_template('index.html')
 
-# Sample api route using converters
-@app.route('/api/data/<int:num>/', methods=["GET", "POST"]) # Get a number from the front-end
-def number_data(num): # Pass the number into our function
-  # Use the number to perform some calcuation
-  result = num * 2
+# Sample api route
+@app.route('/api/data', methods=["GET","POST"])
+def number_data():
+  # Get the data from the "GET" request from the front-end
+  requestData = request.get_data()
+  data = json.loads(requestData)
+  print('This is data: ')
+  print(data)
 
-  return jsonify(result)
-    # The return value must be a: string, tuple, Response instance, or WSGI callable. 
-    # JSON data IS a string. So that's why we use Flask's jsonify function!
+  # Do something with the data
+  result = data['number'] * 2
+
+  # The return value must be a: string, tuple, Response instance, or WSGI callable. 
+  # JSON data IS a string. So let's use Flask's jsonify function:
+  return jsonify(result) # Go check your browser!
 
 # Run the server
 if __name__ == '__main__':
