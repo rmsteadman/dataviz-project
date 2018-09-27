@@ -4,18 +4,19 @@
 ### This repository includes files that you can reference to help you with your application (like a cheat sheet)
 
 ## Subjects
-* App Structure
+* Application Diagram
+* File Structure & Organization
 * Flask
 * HTML/JavaScript/CSS
 * HTTP Requests using Fetch API
-* Database
-* HTML pages
+* Database Interaction
+* Building HTML Pages
 
-## App Structure
+## Application Diagram
 ![App Structure](https://github.com/rmsteadman/dataviz-project/blob/master/app-diagram.png)
 
 ## Flask
-### Basic Application Structure
+### File Structure & Organization
 ~~~
 /app.py
 /templates
