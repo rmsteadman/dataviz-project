@@ -10,7 +10,7 @@ def home():
 # Sample api route
 @app.route('/api/data', methods=["GET","POST"])
 def number_data():
-  # Get the data from the "GET" request from the front-end
+  # Get the data from the "GET" or "POST" request from the front-end
   requestData = request.get_data()
   data = json.loads(requestData)
   print('This is data: ')

@@ -60,7 +60,7 @@ def home():
 # Sample api route
 @app.route('/api/data', methods=["GET","POST"])
 def number_data():
-  # Get the data from the "GET" request from the front-end
+  # Get the data from the "GET" or "POST" request from the front-end
   requestData = request.get_data()
   data = json.loads(requestData)
   print('This is data: ')
@@ -71,7 +71,7 @@ def number_data():
 
   # The return value must be a: string, tuple, Response instance, or WSGI callable. 
   # JSON data IS a string. So let's use Flask's jsonify function:
-  return jsonify(result) # Go check your browser!
+  return jsonify(result)
 
 # Run the server
 if __name__ == '__main__':
