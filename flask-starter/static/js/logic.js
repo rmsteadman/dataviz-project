@@ -3,7 +3,7 @@ let data = {
   'number': 10000
 }
 
-// Create url (this matches the url string in Flask app routes like: @app.route('/api/data/<int:num>'))
+// Create url (this matches the url string in Flask app routes like: @app.route('/api/data'))
 let url = "http://localhost:5000/api/data"
 
 // Configure the type of HTTP request you are attempting to make
