@@ -95,6 +95,8 @@ if __name__ == '__main__':
     <div id="chart"></div>
   </div>
 
+  <!-- YOUR CUSTOM SCRIPTS GO HERE -->
+  <script src="{{ url_for('static', filename='js/logic.js') }}"></script>
   <script src="{{ url_for('static', filename='js/graph.js') }}"></script>
 </body>
 
