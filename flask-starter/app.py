@@ -7,7 +7,7 @@ app = Flask(__name__)
 def home():
   return render_template('index.html')
 
-# Sample api route using converters
+# Sample api route
 @app.route('/api/data', methods=["GET","POST"])
 def number_data():
   # Get the data from the "GET" request from the front-end
