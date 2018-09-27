@@ -11,7 +11,7 @@ let options = {
   method: "POST", // *GET, POST, PUT, DELETE, etc.
   // mode: "no-cors", // no-cors, cors, *same-origin
   headers: {
-    'content-type': 'text/plain; charset=UTF-8'
+    'content-type': 'application/json; charset=UTF-8'
   },
   body: JSON.stringify(data) // body data type must match "Content-Type" header
 }
