@@ -52,6 +52,14 @@ if __name__ == '__main__':
 
 A Demo Application featuring HTTP requests from the client to server (files included in this repo under `flask-starter`):
 
+*Note:* For this example, the data incoming to the sample api route `/api/data` will look like:
+~~~js
+{
+  'number': 10000,
+  'food': 'A cookie 🍪'
+}
+~~~
+
 `app.py`
 ~~~python
 # Import/load necessary files, resources, and dependencies
@@ -65,7 +73,7 @@ def home():
 
 # Sample api route
 @app.route('/api/data', methods=["GET","POST"])
-def number_data():
+def fun_stuff():
   # Get the data from the "GET" or "POST" request from the front-end
   requestData = request.get_data()
   data = json.loads(requestData)
@@ -73,7 +81,15 @@ def number_data():
   print(data)
 
   # Do something with the data
-  result = data['number'] * 2
+  snack = data['food'] # data['food will be: 'A cookie 🍪'
+
+  def eat(item):
+    return 'eaten'
+
+  result = {
+    'newNumber': data['number'] * 2, # data['number] will be 10000
+    'food': eat(snack)
+  }
 
   # The return value must be a: string, tuple, Response instance, or WSGI callable. 
   # JSON data IS a string. So let's use Flask's jsonify function:
@@ -135,7 +151,7 @@ Here we will be using the `fetch` web API to make HTTP requests!
 */
 let data = {
   'number': 10000,
-  'otherData': 'A cookie 🍪'
+  'food': 'A cookie 🍪'
 }
 
 // Create url (this matches the url string in Flask app routes like: @app.route('/api/data'))
@@ -167,7 +183,7 @@ in the form of:
 ~~~js
 let data = {
   'number': 10000,
-  'otherData': 'A cookie 🍪'
+  'food': 'A cookie 🍪'
 }
 ~~~
 
@@ -175,7 +191,7 @@ This data will enter the following route in our Flask App (`app.py`):
 
 ~~~Python
 @app.route('/api/data', methods=["GET","POST"])
-def number_data():
+def fun_stuff():
   # Get the data from the "GET" or "POST" request from the front-end
   requestData = request.get_data()
   data = json.loads(requestData)
@@ -183,14 +199,22 @@ def number_data():
   print(data)
 
   # Do something with the data
-  result = data['number'] * 2
+  snack = data['food'] # data['food will be: 'A cookie 🍪'
+
+  def eat(item):
+    return 'eaten'
+
+  result = {
+    'newNumber': data['number'] * 2, # data['number] will be 10000
+    'food': eat(snack)
+  }
 
   # The return value must be a: string, tuple, Response instance, or WSGI callable. 
   # JSON data IS a string. So let's use Flask's jsonify function:
   return jsonify(result)
 ~~~
 
-The `number_data()` function will run, perform some calculations, and return some JSON data.
+The `fun_stuff()` function will run, perform some calculations, and return some JSON data.
 
 *IMPORTANT*: This data will be sent back to our `JavaScript` file where we made the request!
 

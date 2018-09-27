@@ -6,7 +6,7 @@
 */
 let data = {
   'number': 10000,
-  'otherData': 'A cookie 🍪'
+  'food': 'A cookie 🍪'
 }
 
 // Create url (this matches the url string in Flask app routes like: @app.route('/api/data'))
