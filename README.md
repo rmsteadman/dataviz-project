@@ -230,5 +230,25 @@ fetch(url, options)
   });
 ~~~
 
+## A quick recap on what happened...
+1) We started with the following data on the client `logic.js`:
+~~~js
+let data = {
+  'number': 10000,
+  'food': 'A cookie 🍪'
+}
+~~~
+
+2) We sent it to our server/application `app.py`, performed some calculations and
+sent back the following data back to our client:
+~~~js
+let data = {
+  'newNumber': 20000,
+  'food': 'eaten'
+}
+~~~
+
+3) Profit. *Sweet!*
+
 ## Database (coming soon)
 ## Buildling HTML pages (coming soon)
