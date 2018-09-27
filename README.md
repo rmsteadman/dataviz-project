@@ -5,9 +5,12 @@
 
 ## Subjects
 * Application Diagram
-* File Structure & Organization
 * Flask
+  * File Structure & Organization
+  * The Application (`app.py`)
+  * Basic Templates & Routes
 * HTML/JavaScript/CSS
+* App Demo
 * HTTP Requests using Fetch API
 * Database Interaction
 * Building HTML Pages
@@ -50,6 +53,44 @@ if __name__ == '__main__':
   app.run()
 ~~~
 
+### Basic Templates & Routes
+
+## HTML/JavaScript/CSS
+
+`index.html`
+~~~html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   ... (minimized these files so we can focus on the "body" section)
+</head>
+
+<body>
+  <!-- YOUR HTML CODE GOES HERE -->
+  <div class="container-fluid">
+    <div id="chart"></div>
+  </div>
+
+  <!-- YOUR CUSTOM SCRIPTS GO HERE -->
+  <script src="{{ url_for('static', filename='js/logic.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/graph.js') }}"></script>
+</body>
+
+</html>
+~~~
+
+I want to highlight the following line:
+~~~html
+<script src="{{ url_for('static', filename='js/graph.js') }}"></script>
+~~~
+- All this is saying is: "since this will be a website, we need to create a URL for this file".
+- Use this when sourcing the paths to your `.js` and `.css` files in your `HTML` code!
+- NOTE: You should have your `.js` and `.css` files in the static folder (also in their respective folders) and your `.html` files in the templates folder for this to work!
+- For more information about this at this great [Stack Overflow Thread](https://stackoverflow.com/questions/16351826/link-to-flask-static-files-with-url-for)
+and [Original Documentation](http://flask.pocoo.org/docs/1.0/quickstart/#static-files).
+
+### App Demo
 A Demo Application featuring basic templates (and sending data with them) and HTTP requests from the client to server (files included in this repo under `flask-starter`):
 
 *Note:* For this example, the data incoming to the Sample HTTP Request Route `/api/data` will look like:
@@ -102,43 +143,6 @@ def fun_stuff():
 if __name__ == '__main__':
   app.run()
 ~~~
-
-### 
-
-## HTML/JavaScript/CSS
-
-`index.html`
-~~~html
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-   ... (minimized these files so we can focus on the "body" section)
-</head>
-
-<body>
-  <!-- YOUR HTML CODE GOES HERE -->
-  <div class="container-fluid">
-    <div id="chart"></div>
-  </div>
-
-  <!-- YOUR CUSTOM SCRIPTS GO HERE -->
-  <script src="{{ url_for('static', filename='js/logic.js') }}"></script>
-  <script src="{{ url_for('static', filename='js/graph.js') }}"></script>
-</body>
-
-</html>
-~~~
-
-I want to highlight the following line:
-~~~html
-<script src="{{ url_for('static', filename='js/graph.js') }}"></script>
-~~~
-- All this is saying is: "since this will be a website, we need to create a URL for this file".
-- Use this when sourcing the paths to your `.js` and `.css` files in your `HTML` code!
-- NOTE: You should have your `.js` and `.css` files in the static folder (also in their respective folders) and your `.html` files in the templates folder for this to work!
-- For more information about this at this great [Stack Overflow Thread](https://stackoverflow.com/questions/16351826/link-to-flask-static-files-with-url-for)
-and [Original Documentation](http://flask.pocoo.org/docs/1.0/quickstart/#static-files).
 
 ## HTTP Requests -> getting data from your Python App (Flask) and using it on your website
 
