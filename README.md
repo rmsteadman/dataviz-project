@@ -221,12 +221,12 @@ The `fun_stuff()` function will run, perform some calculations, and return some 
 `logic.js`
 ~~~js
 fetch(url, options)
-  .then(response => { // This is where we get back a response from the HTTP request!
-    return response.json() // Parse the JSON data from our Flask app!
+  .then(response => { // This is where we get back a response from the Flask app!
+    return response.json() // Parse the JSON data
   })
   .then(data => {
-    console.log(`This is data: `, data);
-    // Do something with the data here!
+    console.log(`This is data: `, data); // data looks like: {food: "eaten", newNumber: 20000}
+    // Do something with the data here! like make a new graph or something cool :)
   });
 ~~~
 
