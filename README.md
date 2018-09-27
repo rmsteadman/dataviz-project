@@ -172,6 +172,7 @@ let options = {
   // mode: "no-cors", // no-cors, cors, *same-origin
   headers: {
     'Content-Type': 'application/json; charset=UTF-8'
+    'Access-Control-Allow-Origin': '*'
   },
   body: JSON.stringify(data) // body data type must match "Content-Type" header
 }

@@ -5,8 +5,8 @@
    this, we can "package" some initial data in an object!
 */
 let data = {
-  'number': 10000,
-  'food': 'A cookie 🍪'
+  "number": 10000,
+  "food": "A cookie 🍪"
 }
 
 // Create url (this matches the url string in Flask app routes like: @app.route('/api/data'))
@@ -15,9 +15,10 @@ let url = "http://localhost:5000/api/data"
 // Configure the type of HTTP request you are attempting to make
 let options = {
   method: "POST", // *GET, POST, PUT, DELETE, etc.
-  // mode: "no-cors", // no-cors, cors, *same-origin
+  mode: "no-cors", // no-cors, cors, *same-origin
   headers: {
-    'Content-Type': 'application/json; charset=UTF-8'
+    'content-type': 'application/json',
+    'Access-Control-Allow-Origin': '*'
   },
   body: JSON.stringify(data) // body data type must match "Content-Type" header
 }
@@ -30,4 +31,3 @@ fetch(url, options) // pass the url and options object to the fetch() function
     console.log(`This is data: `, data);
     // Do something with the response data here!
   });
-
