@@ -1,8 +1,8 @@
 /* 
    Let's say we have some number (10000) from a dropdown menu, or a user input,
    and we want to do something with it. In this example we will send it back to our
-   Flask app, perform some math on it, then recieve it back. In order to do this, we 
-   can store it in an object, perhaps sending more than just a number!
+   Flask app, perform some math on it, then recieve some new data back. In order to do 
+   this, we can "package" some initial data in an object!
 */
 let data = {
   'number': 10000,
