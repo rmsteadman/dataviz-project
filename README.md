@@ -81,13 +81,13 @@ def fun_stuff():
   print(data)
 
   # Do something with the data
-  snack = data['food'] # data['food will be: 'A cookie 🍪'
+  snack = data['food'] # data['food'] will be: 'A cookie 🍪'
 
   def eat(item):
     return 'eaten'
 
   result = {
-    'newNumber': data['number'] * 2, # data['number] will be 10000
+    'newNumber': data['number'] * 2, # data['number'] will be 10000
     'food': eat(snack)
   }
 
@@ -199,13 +199,13 @@ def fun_stuff():
   print(data)
 
   # Do something with the data
-  snack = data['food'] # data['food will be: 'A cookie 🍪'
+  snack = data['food'] # data['food'] will be: 'A cookie 🍪'
 
   def eat(item):
     return 'eaten'
 
   result = {
-    'newNumber': data['number'] * 2, # data['number] will be 10000
+    'newNumber': data['number'] * 2, # data['number'] will be 10000
     'food': eat(snack)
   }
 

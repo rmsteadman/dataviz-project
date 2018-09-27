@@ -17,7 +17,7 @@ def fun_stuff():
   print(data)
 
   # Do something with the data
-  snack = data['food'] # data['food will be: 'A cookie 🍪'
+  snack = data['food'] # data['food'] will be: 'A cookie 🍪'
 
   def eat(item):
     return 'eaten'
