@@ -11,6 +11,9 @@
 * Database
 * HTML pages
 
+## App Structure
+![App Structure](https://github.com/rmsteadman/dataviz-project/blob/master/app-diagram.png)
+
 ## Flask
 ### Basic Application Structure
 ~~~
