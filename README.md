@@ -3,11 +3,13 @@
 
 ### This repository includes files that you can reference to help you with your application (like a cheat sheet)
 
-## Steps
-* Set up the Flask App
-* Set up Database
-* Build routes
-* Build templates
+## Subjects
+* App Structure
+* Flask
+* HTML/JavaScript/CSS
+* HTTP Requests using Fetch API
+* Database
+* HTML pages
 
 ## Flask
 ### Basic Application Structure
@@ -113,7 +115,7 @@ I want to highlight the following line:
 - For more information about this at this great [Stack Overflow Thread](https://stackoverflow.com/questions/16351826/link-to-flask-static-files-with-url-for)
 and [Original Documentation](http://flask.pocoo.org/docs/1.0/quickstart/#static-files).
 
-### HTTP Methods -> getting data from your Python App (Flask) and using it on your website
+## HTTP Requests -> getting data from your Python App (Flask) and using it on your website
 
 Here we will be using the `fetch` web API to make HTTP requests!
 
@@ -152,3 +154,6 @@ fetch(url, options) // pass the url and options object to the fetch() function
 ~~~
 
 fetch is a new powerful web API that lets you make asynchronous requests. In fact, fetch is one of the best and my favorite way to make an HTTP request. It returns a “Promise” which is one of the great features of ES6. If you are not familiar with ES6, you can read about it in this article. Promises allow us to handle the asynchronous request in a smarter way. Let’s take a look at how fetch technically works.
+
+## Database (coming soon)
+## Buildling HTML pages (coming soon)
