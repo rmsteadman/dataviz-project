@@ -7,7 +7,10 @@ app = Flask(__name__)
 def home():
   return render_template('index.html')
 
-# Sample api route
+# Sample Template + Data Route
+  # Coming soon
+
+# Sample HTTP Request Route
 @app.route('/api/data', methods=["GET","POST"])
 def fun_stuff():
   # Get the data from the "GET" or "POST" request from the front-end

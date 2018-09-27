@@ -50,9 +50,9 @@ if __name__ == '__main__':
   app.run()
 ~~~
 
-A Demo Application featuring HTTP requests from the client to server (files included in this repo under `flask-starter`):
+A Demo Application featuring basic templates (and sending data with them) and HTTP requests from the client to server (files included in this repo under `flask-starter`):
 
-*Note:* For this example, the data incoming to the sample api route `/api/data` will look like:
+*Note:* For this example, the data incoming to the Sample HTTP Request Route `/api/data` will look like:
 ~~~js
 {
   'number': 10000,
@@ -71,7 +71,10 @@ app = Flask(__name__)
 def home():
   return render_template('index.html')
 
-# Sample api route
+# Sample Template + Data Route
+  # Coming soon
+
+# Sample HTTP Request Route
 @app.route('/api/data', methods=["GET","POST"])
 def fun_stuff():
   # Get the data from the "GET" or "POST" request from the front-end
@@ -99,6 +102,8 @@ def fun_stuff():
 if __name__ == '__main__':
   app.run()
 ~~~
+
+### 
 
 ## HTML/JavaScript/CSS
 
